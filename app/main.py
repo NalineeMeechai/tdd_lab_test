@@ -20,6 +20,9 @@ def read_name(name: str = None):
 def read_name(name: str = None):
     return {"hello": {name}}
 
+class Name(BaseModel):
+    name: str
+
 @app.post("/callname")
 async def call_name(name: Name):
     return name
