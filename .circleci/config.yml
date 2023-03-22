@@ -49,10 +49,10 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - run:
           name: Upload to S3
-          command: aws s3 cp function.zip s3://nalinee/function.zip
+          command: aws s3 cp function.zip s3://nalinee-bucket-s3/function.zip
       - run:
           name: Deploy new Lambda
-          command: aws lambda update-function-code --function-name fastapi-lambda --s3-bucket nalinee --s3-key function.zip
+          command: aws lambda update-function-code --function-name nalinee-lambda-function --s3-bucket nalinee-bucket-s3 --s3-key function.zip
 
 workflows:
   build-test-and-deploy:
